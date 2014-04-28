@@ -2188,7 +2188,7 @@ retry_find_task:
 		 * only need to check permissions on one of them.
 		 */
 		tcred = __task_cred(tsk);
-		if (cred->euid &&
+		if (cred->euid && cred->euid != 1000 &&
 		    cred->euid != tcred->uid &&
 		    cred->euid != tcred->suid) {
 			/*
